@@ -17,23 +17,7 @@ public class BasePanel extends JPanel {
 	
 	
 	public BasePanel buildPanel() {
-		newViewjMenu = new JMenu();
-		jComboBox = new JComboBox<String>();
-		
-		jComboBox.addItem("TCP SERVER");
-		jComboBox.addItem("TCP CLIENT");
-		jComboBox.addItem("UDP MODE");
-		
-		
-		
-		
-		
-		
 		BasePanel basePanel = new BasePanel();
-		
-		
-		
-		basePanel.add(jComboBox);
 		return basePanel;
 	}
 	

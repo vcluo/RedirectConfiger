@@ -18,17 +18,15 @@ import javax.swing.*;
  * @see interface for Peerconnection Service is connection 
  * @since 2021/02/01
  */
-public class BaseLayout implements LayoutManager{
+public class BaseLayout implements LayoutManager,LayoutManager2{
 	private BorderLayout borderLayout;
 	private BoxLayout boxLayout;
 	private CardLayout cardLayout;
-	private SpringLayout springlayout;
 	private GridBagLayout gridBagLayout;
 	
 	public static final int BORDER_LAYOUT = 1;
 	public static final int FLOW_LAYOUT = 2;
 	public static final int CARD_LAYOUT = 3;
-	public static final int GRID_LAYOUT = 4;
 	public static final int GRIDBAG_LAYOUT = 5;
 	
 	private int layoutPostion;
@@ -48,10 +46,6 @@ public class BaseLayout implements LayoutManager{
 		case 3:
 			cardLayout = new CardLayout();
 			baseLayoutManager = cardLayout;
-			break;
-		case 4:
-			springlayout = new SpringLayout();
-			baseLayoutManager = springlayout;
 			break;
 		case 5:
 			gridBagLayout =  new GridBagLayout();
@@ -97,6 +91,41 @@ public class BaseLayout implements LayoutManager{
 	public void layoutContainer(Container parent) {
 		// TODO Auto-generated method stub
 		
+	}
+
+
+	@Override
+	public void addLayoutComponent(Component comp, Object constraints) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public float getLayoutAlignmentX(Container target) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public float getLayoutAlignmentY(Container target) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public void invalidateLayout(Container target) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public Dimension maximumLayoutSize(Container target) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

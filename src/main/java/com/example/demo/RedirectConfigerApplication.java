@@ -2,6 +2,10 @@ package com.example.demo;
 
 import java.awt.BorderLayout;
 import java.awt.GridBagLayout;
+import java.awt.HeadlessException;
+import java.io.CharArrayReader;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -9,11 +13,13 @@ import javax.swing.JPanel;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 
 import com.example.demo.swing.BaseFrame;
 import com.example.demo.swing.BaseLayout;
 import com.example.demo.swing.BasePanel;
 import com.example.demo.swing.MainViewFactory;
+import com.example.demo.swing.impl.MyFrameImpl;
 /**
  * 
  * @author cpplc
@@ -24,15 +30,10 @@ import com.example.demo.swing.MainViewFactory;
 public class RedirectConfigerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RedirectConfigerApplication.class, args);
-		JPanel jPanel = new BasePanel().buildPanel(); //创建组件
-		BaseLayout baseLayout = new BaseLayout();
-		GridBagLayout gridBagLayout = (GridBagLayout)baseLayout.buildviewLeftSelect(baseLayout.GRIDBAG_LAYOUT);
-		gridBagLayout.location(4, 4);
-		jPanel.setLayout(gridBagLayout);
-		BaseFrame baseFrame = new BaseFrame(750, 750);
-		baseFrame.setjPanel(jPanel);
-		new MainViewFactory().BuildMainview(baseFrame);
+		//SpringApplication.run(RedirectConfigerApplication.class, args);
+		SpringApplicationBuilder builder = new SpringApplicationBuilder(RedirectConfigerApplication.class);
+		builder.headless(false).run(args);
+		new MainViewFactory().BuildMainview(new MyFrameImpl());
 	}
 
 }
