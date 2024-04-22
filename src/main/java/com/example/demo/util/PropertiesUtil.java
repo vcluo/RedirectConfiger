@@ -19,11 +19,11 @@ public class PropertiesUtil {
      * util method
      * @return propertyvalue
      */
-    public  int getPropertie( String propertyname) {
+    public int getPropertie(String propertyname) {
     	Properties pps = new Properties();
     	String strValue = "";
         try {
-            InputStream stream = this.getClass()
+            InputStream stream = getClass()
                     .getClassLoader()
                     .getResourceAsStream("config.properties");
             BufferedReader br = new BufferedReader(new InputStreamReader(stream, "UTF-8"));
@@ -40,7 +40,7 @@ public class PropertiesUtil {
     	Properties pps = new Properties();
     	String strValue = "";
         try {
-            InputStream stream = this.getClass()
+            InputStream stream = getClass()
                     .getClassLoader()
                     .getResourceAsStream("config.properties");
             BufferedReader br = new BufferedReader(new InputStreamReader(stream, "UTF-8"));

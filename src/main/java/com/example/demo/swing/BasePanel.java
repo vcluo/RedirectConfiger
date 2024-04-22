@@ -23,7 +23,6 @@ public class BasePanel extends JPanel {
 	
 	@Override
 	public void setLayout(LayoutManager mgr) {
-		
 		super.setLayout(mgr);
 	}
 	

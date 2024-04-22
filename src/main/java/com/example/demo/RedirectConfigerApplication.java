@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -20,6 +21,8 @@ import com.example.demo.swing.BaseLayout;
 import com.example.demo.swing.BasePanel;
 import com.example.demo.swing.MainViewFactory;
 import com.example.demo.swing.impl.MyFrameImpl;
+import org.springframework.context.ApplicationContext;
+
 /**
  * 
  * @author cpplc
@@ -28,12 +31,11 @@ import com.example.demo.swing.impl.MyFrameImpl;
  */
 @SpringBootApplication
 public class RedirectConfigerApplication {
-
 	public static void main(String[] args) {
-		//SpringApplication.run(RedirectConfigerApplication.class, args);
 		SpringApplicationBuilder builder = new SpringApplicationBuilder(RedirectConfigerApplication.class);
 		builder.headless(false).run(args);
-		new MainViewFactory().BuildMainview(new MyFrameImpl());
+		MainViewFactory mainViewFactory = new MainViewFactory();
+		mainViewFactory.BuildMainview(MyFrameImpl.getInstance());
 	}
 
 }
